@@ -1,33 +1,39 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} Course Registration | ARMS {% endblock title %}
+{% block title %} Course Registration | CUNY Zero {% endblock title %}
 
 {% load crispy_forms_tags %}
+
 {% block side_bar %}
     {% include 'partial_active_element.html' with active='course_registration' %}
 {% endblock side_bar %}
+
 {% block content %}
     {% block js %}
     <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
+
        <script type="text/javascript" src="{% static 'js/tbl_scroll.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/disable_checkbox.js' %}"></script>
     {% endblock js %}
+
 <div class="container-fluid mt-5">
+
 	<!-- Table with panel -->
   {% if not all_courses_are_registered %}
 <form method="POST" action="{% url 'course_registration' %}">{% csrf_token %}
   {% for message in messages %}
-  <div style="background-color: lightblue" class="alert {{ message.tags }} alert-dismissible" role="alert">
+  <div style="background-color: rgb(161, 145, 221)" class="alert {{ message.tags }} alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
     {{ message }}
   </div>
 {% endfor %}
+
 <div class="card card-cascade narrower">
 
   <!--Card image-->
@@ -81,7 +87,7 @@
           </tr>
         </thead>
         <!--Table head-->
-
+        
         <!--Table body-->
         <tbody>
           <small><u class="blue-text">FIRST SEMESTER</u></small>
